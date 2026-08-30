@@ -8,6 +8,11 @@ export interface AuthenticatedRequest extends Request {
   userId?: string;
   sessionId?: string;
   deviceId?: string;
+
+  riskScore?: number;
+  riskLevel?: "low" | "medium" | "high" | "critical";
+  accessDecision?: "allow" | "mfa" | "restrict" | "block";
+  riskReasons?: string[];
 }
 
 export const authenticate = async (
